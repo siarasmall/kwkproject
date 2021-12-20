@@ -1,0 +1,125 @@
+<html>
+  
+  <head>
+    <title> Thank You Page </title><link rel="stylesheet" href="stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <style>
+      h1 {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 30px;
+      }
+      </style>
+      <section class="sect1" style="background-color:#A5C4D4"> 
+  </head>
+  <body class="body">
+     <h1 class="titletext" style= "color:black"> <a href='/'>Welcome to the Show Hole...</a></h1>
+    
+     <h3 class="about_us">About Us</h3>
+    
+   <form type = "button" method = "get" action = "/submission">
+     <button id="submissionbutton">Add a submission</button></br></section>
+    </form></br>
+    
+    <form type = "button" method = "get" action = "/tag_submission">
+     <button id="submissionbutton">Add a tag</button></br></section>
+    </form></br>
+    
+    <h2> Thanks for submitting!</h2>
+    <form action="/" method='get'>
+      <input class= "formsubmit" type="submit" value="Return to home">
+    </form>
+  </body>
+</html>
+
+
+require_relative 'config/environment'
+require_relative 'models/enter_data.rb'
+require_relative 'models/sorting.rb'
+require 'sqlite3'
+
+
+
+
+class App < Sinatra::Base
+  database = SQLite3::Database.new( "new.database" )
+  
+  get '/' do
+    @tags = database.execute("select * from tags")
+    erb :index
+  end
+  
+  # post '/da-results' do
+  #   @del = params[:del]
+  #   erb :no_movie_yet
+  # end
+  
+  get '/submission' do
+    @tags = database.execute("select * from tags")
+    erb :submission
+  end
+  
+  get '/tag_submission' do
+    array_tags = database.execute("select * from tags")
+    wuttags = []
+    for i in 0..(array_tags.length - 1)
+      wuttags << array_tags[i][1].capitalize
+    end
+    if wuttags.length > 1
+      @tags = wuttags.join(", ")
+    else
+      @tags = wuttags[0]
+    end
+    erb :tag_submission
+  end
+  
+  post '/completed-submission' do
+    @movie_title = params["title"]
+    @movie_rating = params["rating"]
+    @movie_tags = params["tags"]
+    @movie_description = params["description"]
+    @movie_image = params["image"]
+    
+    data_entry(@movie_title, @movie_tags, @movie_rating, @movie_description, @movie_image)
+    
+    erb :thank_you
+  end
+  
+  post '/results-movies' do
+    movie_searched = params["movie_searched"]
+    
+    @tags_from_movie = database.execute("select tags from movies where title = '#{movie_searched}'")
+    
+    if @tags_from_movie.length == 0 
+      redirect '/no_movie_yet'
+    else
+      tags = @tags_from_movie.split(", ")
+      @sorted_list = full_sort(tags)
+      erb :results
+    end
+  end
+  
+  post '/results-tags'do
+
+    @tags_requested = params[:del]
+    
+    @sorted_list = full_sort(@tags_requested)
+    
+    # @sorted_list = [[1, "The Notebook", ["21st century classic", "cutie alert", "romance", "tearjerker"], "4.56", "A super cute movie!", "https://tse4.mm.bing.net/th?id=OIP.FF6lBbT09dp5VY5es6zbygHaK9&pid=Api"], [2, "Titanic", ["a cool movie", "ocean", "romance"], "5.00", "Another super cute movie!", "https://tse1.mm.bing.net/th?id=OIP.KShZDYyU79giovw5MNdXegHaLH&pid=Api"]]
+    
+    erb :results
+    
+  end
+  
+  get "/no_movie_yet" do
+    erb :no_movie_yet
+  end
+  
+  post '/thank_you' do
+    tag_entry(params["tag_entered"])
+    erb :thank_you
+  end
+  
+end
+
+
+
