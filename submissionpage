@@ -3,18 +3,52 @@
   <head>
     <title>Submission</title>
     <link rel="stylesheet" href="stylesheets/style.css">
+<link rel="stylesheet" href="stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <style>
+      h1 {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 30px;
+      }
+      </style>
+      <section class="sect1" style="background-color:#A5C4D4"> 
+  </head>
+    
   </head>
   <body class="submissionbody">
+     <h1 class="titletext" style= "color:black"> <a href='/'>Welcome to the Show Hole...</a></h1>
+  
+     <h3 class="about_us">About Us</h3>
+     
+     <form type = "button" method = "get" action = "/tag_submission">
+     <button id="submissionbutton">Add a tag</button></br></section>
+    </form></br>
+    
+   <!--<form type = "button" method = "post" action = "/submission">-->
+   <!--  <button id="submissionbutton">Add a submission</button></br></section>-->
+   <!-- </form></br>-->
     
 <div>
 <center>
-  <form action="/action_page.php">
+  <form action="/completed-submission" method="post">
     <label for="title">Title(Required)</label>
     <input class= "formtext" type="text" id="title" name="title" placeholder="Title.."></br></br>
+    
+
     <label for="rating">Rating(Required)</label>
-    <input class= "formtext" type="text" id="rating" name="rating" placeholder="Please format as a number (out of 5) with two decimal places. Example: 2.25"></br></br>
+    <input class= "formtext" type="text" id="rating" name="rating" placeholder="Enter a number (can have decimals) from 0 to 5 for your rating."></br></br>
+
    <label for="title">Tags(Required)</label>
-    <input class= "formtext" type="text" id="tags" name="tags" placeholder="Pick 1+ of the following. Please separate tags by commas.(FAMILY/KIDS, REALITY TV, COMEDY, MYSTERY, TEEN, FANTASY, SCI-FI, DRAMA, ROMANCE, HORROR, THRILLER,ADVENTURE)"></br></br>
+    <!--<input class= "formtext" type="text" id="tags" name="tags" placeholder="(FAMILY/KIDS, REALITY TV, COMEDY, MYSTERY, TEEN, FANTASY, SCI-FI, DRAMA, ROMANCE, HORROR, THRILLER,ADVENTURE)"></br></br>-->
+    <%for k in 1..5%>
+      <select>
+        <%for index in 0..(@tags.length - 1)%>
+         <option value=<%=@tags[index][1]%>><%=@tags[index][1]%></option>
+         <%end%>
+         <option value=""> None </option>
+      </select>
+      <%end%>
+    
     
     <label for="title" class= "formtext">Description(Optional)</label>
     <input class= "formtext" type="text" id="description" name="description" placeholder="If possible, write a description or copy from online."></br></br>
