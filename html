@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Show Hole</title>
+        <link rel="stylesheet" href="stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <style>
+      h1 {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 30px;
+      }
+      </style>
+      <section class="sect1" style="background-color:#A5C4D4"> 
+  </head>
+  <body class="body">
+     <h1 class="titletext" style= "color:black"> Welcome to the Show Hole...</h1>
+    
+     <h3 class="about_us">About Us</h3>
+    
+   <form type = "button" method = "post" action = "/submission">
+     <button id="submissionbutton">Add a submission</button></br></section>
+    </form></br>
+    
+    <section class="movie_image"> 
+    <img src="https://m.media-amazon.com/images/M/MV5BMTgzNjAzMDE0NF5BMl5BanBnXkFtZTcwNTEyMzM3OA@@._V1_UY268_CR7,0,182,268_AL_.jpg" style="width:200px" class ="movie_images"> <img src="https://upload.wikimedia.org/wikipedia/en/4/42/HungerGamesPoster.jpg" style="width:200px" class ="movie_images"> <img src="https://m.media-amazon.com/images/M/MV5BMTk3OTM5Njg5M15BMl5BanBnXkFtZTYwMzA0ODI3._V1_UX182_CR0,0,182,268_AL_.jpg" style="width:200px" class ="movie_images"> <img src="https://lumiere-a.akamaihd.net/v1/images/the-last-jedi-theatrical-poster-film-page_bca06283.jpeg?region=0%2C0%2C480%2C711" style="width:200px" class ="movie_images"><img src="https://m.media-amazon.com/images/M/MV5BZDNmNmI5MGItMjUyOC00ODg4LWE0NmEtMzg5MjUzOWI2MDcwXkEyXkFqcGdeQXVyNjYzNDE4ODA@._V1_UX182_CR0,0,182,268_AL_.jpg" style="width:200px" class ="movie_images"> <img src="https://upload.wikimedia.org/wikipedia/en/2/22/Titanic_poster.jpg"style="width:200px" class ="movie_images"> </section>
+    <h4 class="request"> Searching for something to watch next? Enter a show or movie that you like: </h4>
+    
+    
+    <form method="post" action="/search-bar-intermediate">
+      <input type="text" id="textbox" name="content" ><br>
+      <input class= "submit" type="submit" value="Submit">
+    </form>
+      
+      <h4 class="tag_select"> ...or choose your favorite genres: </h4>
+  
+    </center>
+    
+     <!--Need a textbox for typing in a movie/show -->
+    
+    
+     <!--Get a cool display with tags, might have to do some work with Ruby if we are continuously adding more tags -->
+     <!--Once we have tag names, we can create buttons for them. There's a class for these in the Css code to style them -->
+     <center>
+       <form method = "post" action = "/results">
+         
+        <div class="tag">
+          <label>
+            <input type="checkbox" name="tag1" value="familykids"><span>FAMILY/KIDS</span>
+          </label>
+        </div>
+         
+         <div class="tag">
+          <label>
+            <input type="checkbox" name="tag2" value="realitytv"><span>REALITY TV</span>
+          </label>
+        </div>
+         
+         <div class="tag">
+          <label>
+            <input type="checkbox" name="tag3" value="comedy"><span>COMEDY</span>
+          </label>
+        </div>
+         
+         <div class="tag">
+          <label>
+            <input type="checkbox" name="tag4" value="mystery"><span>MYSTERY</span>
+          </label>
+        </div> 
+         
+         <div class="tag">
+          <label>
+            <input type="checkbox" name="tag5" value="teen"><span>TEEN</span>
+          </label>
+        </div>
+         
+         <div class="tag">
+          <label>
+            <input type="checkbox" name="tag6" value="fantasy"><span>FANTASY</span>
+          </label>
+        </div>
+         
+         <div class="tag">
+          <label>
+            <input type="checkbox" name="tag7" value="scifi"><span>SCI-FI</span>
+          </label>
+        </div>
+         
+         <div class="tag">
+          <label>
+            <input type="checkbox" name="tag8" value="drama"><span>DRAMA</span>
+          </label>
+        </div>
+         
+         <div class="tag">
+          <label>
+            <input type="checkbox" name="tag9" value="romance"><span>ROMANCE</span>
+          </label>
+        </div>
+         
+         <div class="tag">
+          <label>
+            <input type="checkbox" name="tag10" value="horror"><span>HORROR</span>
+          </label>
+        </div>
+         
+         <div class="tag">
+          <label>
+            <input type="checkbox" name="tag11" value="thriller"><span>THRILLER</span>
+          </label>
+        </div></br>
+         
+         <div class="tag">
+          <label>
+            <input type="checkbox" name="tag12" value="adventure"><span>ADVENTURE</span>
+          </label>
+        </div>
+        </br></br></br></br>
+        <input class= "submit" type= "submit">
+      </form>
+    </center>
+    </center>
+    
+     <!--Need a list of movies to display once the user has entered input -->
+    
+    </center>
+  </body>
+</html>
