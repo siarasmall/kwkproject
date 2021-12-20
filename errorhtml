@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>There's no movie yet...</title>
+        <link rel="stylesheet" href="stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <style>
+      h1 {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 30px;
+      }
+      </style>
+      <section class="sect1" style="background-color:#A5C4D4"> 
+  </head>
+  <body>
+     <h1 class="titletext" style= "color:black"> <a href='/'>Welcome to the Show Hole...</a></h1>
+  
+     <h3 class="about_us">About Us</h3>
+    
+   <form type = "button" method = "post" action = "/submission">
+     <button id="submissionbutton">Add a submission</button></br></section>
+    </form></br>
+    
+    <h2>Hmmm... Doesn't look like that movie/show has been added to the showhole yet. Would you like to add it? Once you do, you can go back to the homepage and search it again to get your results!</h2>
+    <form action="/submission" method="get">
+      <input class= "submit" style="width:400px;" type="submit" value="Yes, lemme get others into the showhole!">
+    </form>
+    
+    <form action="/" method="get">
+      <input class= "submit" style="width:400px;" type="submit" value="Nah, I'm good, I'll just go back to the home screen">
+    </form>
+    
+  
+  </body>
+</html>
