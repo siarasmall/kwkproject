@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Submission</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+  <body class="submissionbody">
+    
+<div>
+<center>
+  <form action="/action_page.php">
+    <label for="title">Title(Required)</label>
+    <input class= "formtext" type="text" id="title" name="title" placeholder="Title.."></br></br>
+    <label for="rating">Rating(Required)</label>
+    <input class= "formtext" type="text" id="rating" name="rating" placeholder="Please format as a number (out of 5) with two decimal places. Example: 2.25"></br></br>
+   <label for="title">Tags(Required)</label>
+    <input class= "formtext" type="text" id="tags" name="tags" placeholder="Pick 1+ of the following. Please separate tags by commas.(FAMILY/KIDS, REALITY TV, COMEDY, MYSTERY, TEEN, FANTASY, SCI-FI, DRAMA, ROMANCE, HORROR, THRILLER,ADVENTURE)"></br></br>
+    
+    <label for="title" class= "formtext">Description(Optional)</label>
+    <input class= "formtext" type="text" id="description" name="description" placeholder="If possible, write a description or copy from online."></br></br>
+    
+    <label for="title" class= "formtext">Image(Optional)</label>
+    <input class= "formtext" type="text" id="image" name="image" placeholder="If possible, paste an image link of the movie poster here."></br></br>
+  
+    <input class= "formsubmit" type="submit" value="Submit">
+  </form>
+  </center>
+</div>
+</div>
+  </body>
+</html>
